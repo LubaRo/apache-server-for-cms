@@ -32,16 +32,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pecl install imagick \
     && docker-php-ext-enable imagick
 
-RUN a2enmod rewrite;
+RUN docker-php-ext-install opcache
+
+# 2. Append configuration parameters directly into a scanning directory
+RUN { \
+    echo 'opcache.revalidate_freq=0'; \
+} > /usr/local/etc/php/conf.d/opcache-optimized.ini
+
 
 # install the ssl-cert package which will create a "snakeoil" keypair
 RUN apt-get update \
- && apt-get install -y ssl-cert \
- && rm -r /var/lib/apt/lists/*
+&& apt-get install -y ssl-cert \
+&& rm -r /var/lib/apt/lists/*
 
 # enable ssl module and enable the default-ssl site
 RUN a2enmod ssl \
- && a2ensite default-ssl
+&& a2ensite default-ssl
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+COPY custom.ini /usr/local/etc/php/conf.d/custom.ini
+
+RUN a2enmod rewrite
