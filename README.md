@@ -1,9 +1,11 @@
-# Docker based development environment for CS-Cart:
+# Docker based development environment for Web Sites:
+
 - PHP versions: 7.4;
 - MySQL 5.7;
 - apache web server.
 
 ## Requirements
+
 - Docker
 - docker-compose
 
@@ -21,12 +23,11 @@
 
 ## Apache
 
-The root directory `www`. So put the cs-cart files there.
-
+The root directory `www`. So put the web site files there.
 
 ## Sending e-mails
 
-There is Mailhog included. So to catch the emails by mailhog setup the cs-cart store in admin panel. Go to `Settings -> E-mails` and setup next fields:
+There is Mailhog included. So to catch the emails by mailhog setup your site in admin panel. Go to `Settings -> E-mails` (depends on CMS) and setup next fields:
 
 - `Method of sending e-mails:` -> `via SMTP server`
 - `SMTP host` -> `127.0.0.1:1025`
@@ -35,20 +36,18 @@ There is Mailhog included. So to catch the emails by mailhog setup the cs-cart s
 
 All mysql data is stored in db_data folder. So it is persisted despite the state of containers.
 
-
 ### MySQL credentials:
 
 Username: `root`
 
 Password: `root`
 
-
 ## Result
 
-- Apache web server available on localhost with ports 80 and 443.
-- Mailhog web interface: http://localhost:8025/
-- PhpMyAdmin web interface: http://localhost:8010/
-
+- Apache web server: http://localhost:80/ and https://localhost
+- Mailhog: http://localhost:8025/
+- PhpMyAdmin: http://localhost:8010/
+- Adminer: http://localhost:8020/
 
 ## XDebug
 
@@ -57,20 +56,20 @@ To setup it in VSCode install `PHP Debug` extension and specify for each store t
 
 ```json
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Listen for Xdebug",
-            "type": "php",
-            "request": "launch",
-            "port": 9003,
-            "pathMappings": {
-                "/var/www/html/<app_name>": "${workspaceFolder}"
-            }
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for Xdebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/var/www/html/<app_name>": "${workspaceFolder}"
+      }
+    }
+  ]
 }
 ```

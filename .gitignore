@@ -5,3 +5,8 @@ db/*
 !db/backups/.gitignore
 !db/data/.gitignore
 !db/.gitignore
+
+.idea
+.DS_Store
+/vendor/
+composer.lock
