@@ -44,7 +44,9 @@ Password: `root`
 
 ## Result
 
-- Apache web server: http://localhost:80/ and https://localhost
+- Apache web server on ports 80 and 443:
+  - http://localhost/phpinfo.php
+  - https://localhost/phpinfo.php
 - Mailhog: http://localhost:8025/
 - PhpMyAdmin: http://localhost:8010/
 - Adminer: http://localhost:8020/
