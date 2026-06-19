@@ -4,6 +4,12 @@ up:
 build:
 	docker compose up --build php8.2_apache mysql8 phpmyadmin adminer mailpit
 
+stop:
+	docker compose stop
+
+down:
+	docker compose down
+
 bash:
 	docker compose run --rm php8.2_apache /bin/bash
 
