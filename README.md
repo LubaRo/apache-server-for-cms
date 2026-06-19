@@ -1,7 +1,7 @@
 # Docker based development environment for Web Sites:
 
-- PHP versions: 7.4;
-- MySQL 5.7;
+- PHP versions: 5.3, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.2;
+- MySQL 5.7, MySQL 8.4;
 - apache web server.
 
 ## Requirements
