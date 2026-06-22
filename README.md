@@ -44,7 +44,7 @@ Password: `root`
 
 ## Result
 
-- Apache web server on ports 80 and 443:
+- Apache web-server:
   - http://localhost/phpinfo.php
   - https://localhost/phpinfo.php
 - Mailhog: http://localhost:8025/
@@ -53,25 +53,23 @@ Password: `root`
 
 ## XDebug
 
-XDebug configuration specifieced for php 7.4 in `configs/php7.4/docker-php-ext-xdebug.ini`
-To setup it in VSCode install `PHP Debug` extension and specify for each store the next settings in `www/<app_name>/.vscode/launch.json`
+Настройки XDebug для php 8.2 - `configs/php8.2/docker-php-ext-xdebug.ini`
+Для работы с VSCode нужно установить расширение `PHP Debug` и указать следующие параметры в `www/.vscode/launch.json`
 
 ```json
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Listen for Xdebug",
-      "type": "php",
-      "request": "launch",
-      "port": 9003,
-      "pathMappings": {
-        "/var/www/html/<app_name>": "${workspaceFolder}"
-      }
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "hostname": "127.0.0.1",
+            "pathMappings": {
+                "/var/www/html": "${workspaceFolder}"
+            }
+        }
+    ]
 }
 ```
